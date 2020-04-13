@@ -1,0 +1,29 @@
+{% extends 'anoapp/base.html' %}
+
+{% block content %}
+
+
+<div class="jumbotron">
+
+
+<h1>
+
+{% if not form.instance.pk %}
+Create Fashion
+
+{% else %}
+
+Update Fashion
+</h1>
+{% endif %}
+
+<form class="" method="post" enctype="multipart/form-data">
+{% csrf_token %}
+{{form.as_p}}
+{{formset.as_table}}
+<input type="submit" class='btn btn-primary' name="" value="Submit">
+
+</form>
+
+</div>
+{% endblock%}

@@ -1,0 +1,28 @@
+{% extends 'anoapp/base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="jumbotron">
+  <div class="container">
+<div class='col-sm-6 col-sm-offset-3'>
+
+
+  <h1>Detail Page for Fashion</h1>
+  <p>{{fashions_detail.brand_name}}: {{fashions_detail.product}}</p>
+  
+ {% if fashions_detail.image %}
+  <img src="{{fashions_detail.image.url}}" width='240' alt="No photo">
+  {% endif %}
+
+</div>
+</div>
+</div>
+<div class="container">
+  <div class="jumbotron">
+
+    <p><a class='btn btn-warning' href="{% url 'anoapp:update' pk=fashions_detail.pk %}">Update</a></p>
+  </div>
+
+</div>
+
+{% endblock%}

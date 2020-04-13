@@ -1,0 +1,18 @@
+{% extends 'anoapp/base.html'%}
+
+{% block content %}
+
+<div class="jumbotron">
+  <h1>About Form</h1>
+
+  <form class="" method="post">
+    {% csrf_token %}
+    {{form.as_p}}
+
+    <input type="submit" name="" value="Submit">
+
+  </form>
+</div>
+
+
+{% endblock%}

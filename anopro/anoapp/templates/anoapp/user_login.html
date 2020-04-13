@@ -1,0 +1,28 @@
+{% extends 'anoapp/base.html'%}
+  {% block content %}
+
+  <div class="container">
+  <div class="jumbotron">
+    <h1>Login Page</h1>
+
+  <form class="" action="{% url 'anoapp:login'%}" method="post">
+
+  {% csrf_token%}
+
+  <input type="text" name="username" value="" placeholder="Username">
+  <br>
+  <input type="password" name="password" value="" placeholder="Password">
+  <br>
+  <input type="submit" class='btn btn-primary' name="" value="Submit">
+</form>
+
+<div class="">
+  {% for message in messages %}
+   {{message}}
+
+   {% endfor %}
+</div>
+  </div>
+  </div>
+
+  {% endblock%}

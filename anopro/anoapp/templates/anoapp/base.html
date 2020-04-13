@@ -1,0 +1,60 @@
+<!DOCTYPE html>{% load static %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script
+  src="http://code.jquery.com/jquery-3.2.1.js"
+  integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+  crossorigin="anonymous"></script>
+
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+            crossorigin="anonymous">
+
+    <script src="//cdn.jsdelivr.net/npm/medium-editor@latest/dist/js/medium-editor.min.js"></script>
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/medium-editor@latest/dist/css/medium-editor.min.css" type="text/css" media="screen" charset="utf-8">
+  <link href="https://fonts.googleapis.com/css?family=Titan+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'anoapp/style.css' %}">
+
+  </head>
+  <body>
+
+      <nav class="navbar navbar-inverse">
+
+        <a class="navbar-brand" href="{% url 'home' %}">SnapBack</a>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+        <div class="">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="{% url 'anoapp:about' %}">About <span class="sr-only">(current)</span></a></li>
+            <li><a href="{% url 'anoapp:list' %}"><span class="glyphicon glyphicon-scissors" aria-hidden='true'></span>&nbsp; Fashion</a></li>
+            <li><a href="{% url 'admin:index' %}">Admin</a></li>
+
+          </ul>
+        </div>
+        </div>
+
+        <div class="container">
+
+          <ul class="nav navbar-nav navbar-right">
+
+          <li><a href="" class="num">Call us: 08027456689</a></li>
+          {% if user.is_authenticated %}
+          <li><a href="#">Hello, {{user.first_name}}</a></li>
+          <li><a href="{% url 'anoapp:logout' %}">Logout</a></li>
+          <li><a href="{% url 'anoapp:latest' %}">Lastest Article</a></li>
+          <li><a href="{% url 'anoapp:create' %}">Create</a></li>
+            {% else %}
+          <li><a href="{% url 'anoapp:registers' %}">Register</a></li>
+          <li><a href="{% url 'anoapp:login' %}">Login</a></li>
+          {% endif %}
+    </ul>
+    </div>
+  </nav>
+        {% block content %}{% endblock%}
+
+
+
+        <script type="text/javascript" src="{% static 'anoapp/style.js'  %}"></script>
+  </body>
+</html>

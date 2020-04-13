@@ -1,0 +1,40 @@
+{% extends 'anoapp/base.html'%}
+  {% block content %}
+
+<div class="container">
+
+
+<div class="jumbotron">
+  <h1>Register Page</h1>
+
+
+  <form class="" method="post">
+    {% csrf_token %}
+
+    <input type="text" name="first_name" value="" placeholder="First Name">
+    <br>
+    <input type="text" name="last_name" value="" placeholder="Last Name">
+    <br>
+    <input type="email" name="email" value="" placeholder="Email">
+    <br>
+    <input type="text" name="username" value="" placeholder="username">
+    <br>
+    <input type="password" name="password1" value="" placeholder="Password">
+    <br>
+    <input type="password" name="password2" value="" placeholder="Confirm Password">
+    <br>
+    <input type="submit" class='btn btn-primary' name="" value="Register" >
+
+
+  </form>
+</div>
+</div>
+
+<div class="">
+  {% for message in messages %}
+   {{message}}
+
+   {% endfor %}
+</div>
+
+  {% endblock%}
